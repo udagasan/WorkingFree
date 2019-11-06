@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Process.Test
 {
     [TestClass]
-    public class FindSubString
+    public class FindSubStringTest
     {
         [TestMethod]
         public void When_Sperated_Word_It_Can_Be_Found()
