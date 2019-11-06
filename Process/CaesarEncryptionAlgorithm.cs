@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 
 namespace Process
 {
     public class CaesarEncryptionAlgorithm
     {
-        public static string EncryptFile(string source, int key)
+        public static string GenerateEncryptoKey(string source, int key)
         {
             return string.Join("", source.Select(x => Encrypt(x, key)));
         }
-        public static string DecrypedFile(string source, int key)
+        public static string GenerateDecryptoKey(string source, int key)
         {
             return string.Join("", source.Select(x => Decrypt(x, key)));
         }

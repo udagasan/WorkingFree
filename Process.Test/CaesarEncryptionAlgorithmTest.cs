@@ -14,7 +14,7 @@ namespace Process.Test
             var source = "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG";
 
             //When
-            var encryptedText = CaesarEncryptionAlgorithm.EncryptFile(source, -3);
+            var encryptedText = CaesarEncryptionAlgorithm.GenerateEncryptoKey(source, -3);
 
             //Then
             Assert.AreEqual("QEB NRFZH YOLTK CLU GRJMP LSBO QEB IXWV ALD", encryptedText);
@@ -28,7 +28,7 @@ namespace Process.Test
             var source = "QEB NRFZH YOLTK CLU GRJMP LSBO QEB IXWV ALD";
 
             //When
-            var decryptedText = CaesarEncryptionAlgorithm.DecrypedFile(source, -3);
+            var decryptedText = CaesarEncryptionAlgorithm.GenerateDecryptoKey(source, -3);
 
             //Then
             Assert.AreEqual("THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG", decryptedText);
