@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CaesarEncryptionAlgorithm.cs" />
+    <Compile Include="Card.cs" />
     <Compile Include="FileOperations.cs" />
     <Compile Include="FindSubString.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

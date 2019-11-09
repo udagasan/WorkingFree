@@ -6,9 +6,16 @@ using System.Text;
 
 namespace Process
 {
+    /// <summary>
+    /// FileOperations
+    /// </summary>
     public class FileOperations
     {
-        internal static string CreatRandomFile()
+        /// <summary>
+        /// Creates the random text file.
+        /// </summary>
+        /// <returns></returns>
+        internal static string CreateRandomTextFile()
         {
 
             var fileName = string.Format("{0}.txt", DateTime.Now.ToString("yyyyMMdd_HHss"));
@@ -19,6 +26,11 @@ namespace Process
             File.AppendAllText(fullPath, "TestData");
             return fullPath;
         }
+        /// <summary>
+        /// Gets the random old createdencrypted file.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="FileNotFoundException"></exception>
         internal static string GetRandomOldCreatedencryptedFile()
         {
             var files = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.txt")?.ToList();
@@ -52,17 +64,19 @@ namespace Process
         /// Decrypteds the file.
         /// </summary>
         /// <param name="filePath">The file path.</param>
-        /// <returns></returns>
-        public static bool DecryptedFile(string filePath)
+        /// <exception cref="FileNotFoundException">filePath
+        /// or
+        /// EncryptedFileNotFound</exception>
+        public static void DecryptedFile(string filePath)
         {
             if (!File.Exists(filePath))
             {
-                return false;
+                throw new FileNotFoundException(nameof(filePath));
             }
             var fileName = Path.GetFileName(filePath);
             if (!fileName.StartsWith("E"))
             {
-                return false;
+                throw new FileNotFoundException("EncryptedFileNotFound");
             }
             var originalFileName = fileName.Substring(1, fileName.Length - 1);
             var chryptoKey = CaesarEncryptionAlgorithm.GenerateEncryptoKey(originalFileName, -3);
@@ -70,10 +84,15 @@ namespace Process
 
             var outputFileName = string.Concat("D", originalFileName);
             DecryptFile(filePath, outputFileName, chryptoKey);
-            return true;
         }
 
-        static bool EncryptFile(string inputFile, string outputFile, string skey)
+        /// <summary>
+        /// Encrypts the file.
+        /// </summary>
+        /// <param name="inputFile">The input file.</param>
+        /// <param name="outputFile">The output file.</param>
+        /// <param name="skey">The skey.</param>
+        static void EncryptFile(string inputFile, string outputFile, string skey)
         {
             try
             {
@@ -101,13 +120,19 @@ namespace Process
                         }
                     }
                 }
-                return true;
             }
             catch (Exception ex)
             {
-                return false;
+                throw ex;
             }
         }
+        /// <summary>
+        /// Decrypts the file.
+        /// </summary>
+        /// <param name="inputFile">The input file.</param>
+        /// <param name="outputFile">The output file.</param>
+        /// <param name="skey">The skey.</param>
+        /// <returns></returns>
         static bool DecryptFile(string inputFile, string outputFile, string skey)
         {
             try
@@ -140,7 +165,7 @@ namespace Process
             }
             catch (Exception ex)
             {
-                return false;
+                throw ex;
             }
         }
     }

@@ -10,7 +10,7 @@ namespace Process.Test
         [TestInitialize]
         public void Createfile()
         {
-            CurrentCreatedFilePath = FileOperations.CreatRandomFile();
+            CurrentCreatedFilePath = FileOperations.CreateRandomTextFile();
         }
 
         [TestMethod]

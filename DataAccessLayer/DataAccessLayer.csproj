@@ -79,6 +79,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
+    <Content Include="RentAcarDatabaseDiagram.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RentACarDatabaseDiagram.dbd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
