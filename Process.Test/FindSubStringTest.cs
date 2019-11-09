@@ -4,9 +4,15 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Process.Test
 {
+    /// <summary>
+    /// FindSubStringTest
+    /// </summary>
     [TestClass]
     public class FindSubStringTest
     {
+        /// <summary>
+        /// Whens the sperated word it can be found.
+        /// </summary>
         [TestMethod]
         public void When_Sperated_Word_It_Can_Be_Found()
         {
@@ -21,6 +27,9 @@ namespace Process.Test
             Assert.AreEqual(result, 2);
         }
 
+        /// <summary>
+        /// Whens the combined it can be found.
+        /// </summary>
         [TestMethod]
         public void When_Combined_It_Can_Be_Found()
         {
@@ -34,6 +43,9 @@ namespace Process.Test
             //Then
             Assert.AreEqual(result, 4);
         }
+        /// <summary>
+        /// Whens it can be none case sensitive.
+        /// </summary>
         [TestMethod]
         public void When_It_Can_Be_None_Case_Sensitive()
         {

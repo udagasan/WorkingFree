@@ -2,6 +2,9 @@
 
 namespace Process.Test
 {
+    /// <summary>
+    /// CaesarEncryptionAlgorithmTest
+    /// </summary>
     [TestClass]
     public class CaesarEncryptionAlgorithmTest
     {
@@ -10,7 +13,7 @@ namespace Process.Test
         [TestMethod]
         public void Encryption()
         {
-            //Case
+            //Given
             var source = "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG";
 
             //When
@@ -24,7 +27,7 @@ namespace Process.Test
         [TestMethod]
         public void Decryption()
         {
-            //Case
+            //Given
             var source = "QEB NRFZH YOLTK CLU GRJMP LSBO QEB IXWV ALD";
 
             //When

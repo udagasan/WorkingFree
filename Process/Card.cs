@@ -6,31 +6,53 @@ using System.Threading.Tasks;
 
 namespace Process
 {
-
+    /// <summary>
+    /// Card
+    /// </summary>
     public class Card
     {
+        /// <summary>
+        /// Suites
+        /// </summary>
         public enum Suites
         {
-            Hearts = 0,
+            /// <summary>
+            /// The diamonds
+            /// </summary>
             Diamonds,
+            /// <summary>
+            /// The clubs
+            /// </summary>
             Clubs,
+            /// <summary>
+            /// The hearts
+            /// </summary>
+            Hearts,
+            /// <summary>
+            /// The spades
+            /// </summary>
             Spades
         }
 
+        /// <summary>
+        /// Gets or sets the value.
+        /// </summary>
+        /// <value>
+        /// The value.
+        /// </value>
         public int Value
         {
             get;
             set;
         }
 
+    
         public Suites Suite
         {
             get;
             set;
         }
 
-        //Used to get full name, also useful 
-        //if you want to just get the named value
         public string NamedValue
         {
             get
@@ -59,6 +81,12 @@ namespace Process
             }
         }
 
+        /// <summary>
+        /// Gets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
         public string Name
         {
             get
@@ -67,6 +95,11 @@ namespace Process
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Card"/> class.
+        /// </summary>
+        /// <param name="Value">The value.</param>
+        /// <param name="Suite">The suite.</param>
         public Card(int Value, Suites Suite)
         {
             this.Value = Value;
@@ -74,22 +107,32 @@ namespace Process
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public class Deck
     {
+        /// <summary>
+        /// The cards
+        /// </summary>
         public List<Card> Cards = new List<Card>();
+        /// <summary>
+        /// Fills the deck.
+        /// </summary>
         public void FillDeck()
         {
-            //Can use a single loop utilising the mod operator % and Math.Floor
-            //Using divition based on 13 cards in a suited
+
             for (int i = 0; i < 52; i++)
             {
                 Card.Suites suite = (Card.Suites)(Math.Floor((decimal)i / 13));
-                //Add 2 to value as a cards start a 2
                 int val = i % 13 + 2;
                 Cards.Add(new Card(val, suite));
             }
         }
 
+        /// <summary>
+        /// Prints the deck.
+        /// </summary>
         public void PrintDeck()
         {
             foreach (Card card in this.Cards)

@@ -3,8 +3,22 @@ using System.Collections.Generic;
 
 namespace Process
 {
+    /// <summary>
+    /// FindSubString  
+    /// </summary>
     public class FindSubString
     {
+        /// <summary>
+        /// Finds the specified s1.
+        /// </summary>
+        /// <param name="s1">The s1.</param>
+        /// <param name="s2">The s2.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException">
+        /// s2
+        /// or
+        /// s1
+        /// </exception>
         public static int Find(string s1, string s2)
         {
             string source = string.Empty;

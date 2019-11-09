@@ -2,10 +2,15 @@
 
 namespace Process.Test
 {
+    /// <summary>
+    /// FileEncryptionAndDecyption
+    /// </summary>
     [TestClass]
     public class FileEncryptionAndDecyption
     {
+
         public string CurrentCreatedFilePath { get; set; }
+
 
         [TestInitialize]
         public void Createfile()
@@ -13,21 +18,22 @@ namespace Process.Test
             CurrentCreatedFilePath = FileOperations.CreateRandomTextFile();
         }
 
+
         [TestMethod]
         public void EncrptFile()
         {
             FileOperations.EncryptedFile(CurrentCreatedFilePath);
         }
+
         [TestMethod]
-        public void When_Give_An_EncryptedFile_It_Should_Decrypt()
+        public void When_Give_An_EncryptedFile_It_Should_Decrypt_LikeOriginal_File()
         {
             //Given
             var oldencrypedFile = FileOperations.GetRandomOldCreatedencryptedFile();
             //When
-            var result = FileOperations.DecryptedFile(oldencrypedFile);
+            FileOperations.DecryptedFile(oldencrypedFile);
 
-            //Then
-            Assert.IsTrue(result);
+
         }
     }
 }

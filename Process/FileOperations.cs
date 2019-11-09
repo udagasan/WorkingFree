@@ -46,11 +46,11 @@ namespace Process
         /// </summary>
         /// <param name="filePath">The file path.</param>
         /// <returns></returns>
-        public static bool EncryptedFile(string filePath)
+        public static void EncryptedFile(string filePath)
         {
             if (!File.Exists(filePath))
             {
-                return false;
+                throw new FileNotFoundException();
             }
             var fileName = Path.GetFileName(filePath);
 
@@ -58,7 +58,6 @@ namespace Process
 
             var outputFileName = string.Concat("E", fileName);
             EncryptFile(filePath, outputFileName, cryptoKey);
-            return true;
         }
         /// <summary>
         /// Decrypteds the file.
