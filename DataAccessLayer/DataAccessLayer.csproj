@@ -72,6 +72,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CreateRentACarDb.sql" />
     <Content Include="Database.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -79,6 +80,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
+    <Content Include="PhoneDatabaseDiagram.JPG" />
+    <Content Include="PhoneDb.sql" />
+    <Content Include="PhoneSearchScript.sql" />
     <Content Include="RentAcarDatabaseDiagram.JPG" />
   </ItemGroup>
   <ItemGroup>
